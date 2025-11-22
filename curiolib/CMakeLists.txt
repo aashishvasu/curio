@@ -39,15 +39,20 @@ target_include_directories(	curiolib
 						)
 
 target_link_libraries(	curiolib
-						PUBLIC SDL3::SDL3
-						PRIVATE spdlog::spdlog
+							PRIVATE
+								SDL3::SDL3
+								spdlog::spdlog
 						)
 
-target_compile_definitions(	curiolib PUBLIC
-							$<$<CONFIG:Debug>:CURIO_DEBUG>
-							$<$<CONFIG:RelWithDebInfo>:CURIO_RELDBG>
-							$<$<CONFIG:Release>:CURIO_RELEASE>
-							$<$<CONFIG:MinSizeRel>:CURIO_MINREL>
+# Defines used by the library
+target_compile_definitions(	curiolib
+								PUBLIC
+									$<$<CONFIG:Debug>:CURIO_DEBUG>
+									$<$<CONFIG:RelWithDebInfo>:CURIO_RELDBG>
+									$<$<CONFIG:Release>:CURIO_RELEASE>
+									$<$<CONFIG:MinSizeRel>:CURIO_MINREL>
+								PRIVATE
+									CU_PLATFORM_SDL=1
 							)
 
 target_precompile_headers(curiolib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Private/CuPCH.h)
