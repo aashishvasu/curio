@@ -14,5 +14,6 @@ public:
 
 inline CuCore::Application* CuCore::CreateApplication()
 {
+	// TODO: Use custom allocator when ready
 	return new Sandbox();
 }

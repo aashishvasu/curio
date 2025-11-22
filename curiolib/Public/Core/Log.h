@@ -73,6 +73,6 @@ namespace CuLog
     #define CU_LOG(Logger, LogLevel, format, ...) \
 	CuLog::GLog::Get().Log(Logger, CuLog::ELogLevel::LogLevel, __FILE__, __LINE__, format, ##__VA_ARGS__)
 #else
-    #define CU_LOG_ENGINE(Level, format, ...) ((void)0)
-    #define CU_LOG(Logger, Level, format, ...) ((void)0)
+    #define CU_LOG_ENGINE(Level, format, ...) 
+    #define CU_LOG(Logger, Level, format, ...) 
 #endif

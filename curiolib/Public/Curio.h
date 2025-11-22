@@ -10,5 +10,5 @@
 #include "Core/Log.h"
 
 ///////////////ENTRY POINT///////////////////
-#include "Core/EntryPoint.hpp"
+#include "EntryPoint.hpp"
 /////////////////////////////////////////////
