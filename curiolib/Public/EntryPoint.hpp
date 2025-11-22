@@ -17,11 +17,11 @@ extern CuCore::Application* CuCore::CreateApplication();
 		app->Initialize();
 
 		// Update
-		// while (true)
-		// {
-		// 	engine->Update();
-		// 	app->Update();
-		// }
+		while (engine->ShouldQuit() == false)
+		{
+			engine->Update();
+			app->Update();
+		}
 
 		// Shutdown
 		app->Shutdown();
