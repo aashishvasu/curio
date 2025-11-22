@@ -8,11 +8,12 @@ extern CuCore::Application* CuCore::CreateApplication();
 #if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 	inline int main(int argc, char** argv)
 	{
-		CuCore::Engine engine = CuCore::Engine();
+		// TODO: Use custom allocator when ready
+		CuCore::Engine* engine = new CuCore::Engine();
 		CuCore::Application* app = CuCore::CreateApplication();
 
 		// Initialization
-		engine.Initialize(argc, argv);
+		engine->Initialize(argc, argv);
 		app->Initialize();
 
 		// Update
@@ -24,9 +25,10 @@ extern CuCore::Application* CuCore::CreateApplication();
 
 		// Shutdown
 		app->Shutdown();
-		engine.Shutdown();
+		engine->Shutdown();
 		
 		delete app;
+		delete engine;
 		return 0;
 	}
 
