@@ -1,21 +1,21 @@
 ﻿#pragma once
-#include "CuWindow.h"
+
+#include "IWindow.h"
 
 struct SDL_Window;
 namespace CuCore
 {
-	class CuWindowSDL final : public CuWindow
+	class WindowSDL final : public IWindow
 	{
 	public:
-		CuWindowSDL() = default;
-		~CuWindowSDL() override;
+		~WindowSDL() override;
 
-		// CuWindow Interface
-		void Create(const char* Title, int Width, int Height) override;
+		// IWindow Interface
+		void Create(const WindowProperties& inProps) override;
 		void Close() override;
 		bool ShouldClose() const override;
 		void PollEvents() override;
-		// CuWindow Interface
+		// IWindow Interface
 	private:
 		// TODO: Replace with custom allocator
 		SDL_Window* Window = nullptr;
