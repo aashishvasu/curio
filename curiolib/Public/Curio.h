@@ -2,12 +2,15 @@
 
 // Curio includes
 
-// Core
-#include "Core/Engine.h"
-#include "Core/Application.h"
+// Memory
+#include "Core/Memory/Memory.h"
 
 // Logging
 #include "Core/Log.h"
+
+// Core
+#include "Core/Engine.h"
+#include "Core/Application.h"
 
 ///////////////ENTRY POINT///////////////////
 #include "EntryPoint.hpp"
