@@ -1,5 +1,6 @@
 ﻿#include "Core/Engine.h"
 #include "Core/Log.h"
+#include "Core/Memory/Memory.h"
 #include "Core/Application.h"
 
 #ifdef CU_PLATFORM_SDL
@@ -11,8 +12,9 @@ using namespace CuCore;
 
 void Engine::Initialize(int argc, char** argv)
 {
-	// Initialize logger
+	// Initialize global engine modules
 	CuLog::GLog::Get().Initialize();
+	CuCore::GMemory::Get().Initialize();
 
 	// Platform initialization
 #ifdef CU_PLATFORM_SDL
@@ -43,7 +45,7 @@ void Engine::Update()
 
 void Engine::Shutdown()
 {
-	CU_LOG_ENGINE(Trace, "Engine shutdown begun..");
+	CU_LOG_ENGINE(Trace, "Engine shutdown begin");
 	
 	// Shutdown in reverse order
 	// App
@@ -56,9 +58,9 @@ void Engine::Shutdown()
 #ifdef CU_PLATFORM_SDL
 	SDL_Quit();
 #endif
-
-	// Logger
-	CU_LOG_ENGINE(Info, "Engine shutdown.");
+	
+	// Engine globals
+	CuCore::GMemory::Get().Shutdown();
 	CuLog::GLog::Get().Shutdown();
 
 	// Cleanup

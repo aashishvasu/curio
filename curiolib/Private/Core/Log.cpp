@@ -55,12 +55,16 @@ void GLog::Initialize()
 	SetLogVerbosity(EVerbosity::Verbose);
 
 	Initialized = true;
+
+	CU_LOG_ENGINE(Trace, "Global logging initialized");
 }
 
 void GLog::Shutdown()
 {
 	if (!Initialized)
 		return;
+	
+	CU_LOG_ENGINE(Trace, "Global logging shut down");
 
 	{
 		std::lock_guard<std::mutex> lock(LoggerRegistry::Get().mutex);
