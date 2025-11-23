@@ -2,7 +2,10 @@
 
 namespace CuCore
 {
-	class CuWindow;	
+	class IWindow;
+	class Application;
+
+	extern Application* CreateApplication(int argc, char** argv);
 	
 	class CURIO_API Engine
 	{
@@ -14,9 +17,12 @@ namespace CuCore
 		bool ShouldQuit() const;
 
 	private:
+		// Application handle
+		Application* AppHandle = nullptr;
+		
 		// The main window
 		// TODO: Replace with custom allocator
-		CuWindow* WindowHandle = nullptr;
+		IWindow* WindowHandle = nullptr;
 
 		bool CanQuit = false;
 	};

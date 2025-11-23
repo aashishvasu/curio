@@ -1,13 +1,10 @@
 #include "Sandbox.h"
 
+Sandbox::Sandbox(const CuCore::ApplicationSpec& Spec) : Application(Spec) {}
+
 void Sandbox::Initialize()
 {
-	CU_LOG(LogSandbox, Trace, "Trace");
-	CU_LOG(LogSandbox, Debug, "Debug");
-	CU_LOG(LogSandbox, Info, "Info");
-	CU_LOG(LogSandbox, Warning, "Warning");
-	CU_LOG(LogSandbox, Error, "Error");
-	CU_LOG(LogSandbox, Critical, "Critical");
+	CU_LOG(LogSandbox, Trace, "App initialized");
 }
 
 void Sandbox::Update()
@@ -17,5 +14,5 @@ void Sandbox::Update()
 
 void Sandbox::Shutdown()
 {
-	
+	CU_LOG(LogSandbox, Trace, "App shutdown");
 }

@@ -1,10 +1,10 @@
 ﻿#include "Core/Engine.h"
-
 #include "Core/Log.h"
+#include "Core/Application.h"
 
 #ifdef CU_PLATFORM_SDL
 #include "SDL3/SDL.h"
-#include "Core/Platform/CuWindowSDL.h"
+#include "Core/Platform/WindowSDL.h"
 #endif
 
 using namespace CuCore;
@@ -18,14 +18,24 @@ void Engine::Initialize(int argc, char** argv)
 #ifdef CU_PLATFORM_SDL
 	SDL_Init(SDL_INIT_VIDEO);
 	CU_LOG_ENGINE(Info, "SDL Initialized");
-	WindowHandle = new CuWindowSDL();
+	WindowHandle = new WindowSDL();
 #endif
+
+	// App creation - should give us access to app spec
+	AppHandle = CreateApplication(argc, argv);
+	
 	// Window creation
-	WindowHandle->Create("Curio", 640, 480);
+	CU_LOG_ENGINE(Debug, "Application spec %s found", AppHandle->GetAppSpec().Name);
+	WindowHandle->Create({AppHandle->GetAppSpec().Name, AppHandle->GetAppSpec().Width, AppHandle->GetAppSpec().Height});
+
+	// App initialization
+	AppHandle->Initialize();
 }
 
 void Engine::Update()
 {
+	AppHandle->Update();
+	
 	// Poll window events
 	// TODO: Temp implementation in lieu of event system
 	WindowHandle->PollEvents();
@@ -33,15 +43,27 @@ void Engine::Update()
 
 void Engine::Shutdown()
 {
-	CU_LOG_ENGINE(Info, "CuCore::Engine::Shutdown called");
+	CU_LOG_ENGINE(Trace, "Engine shutdown begun..");
 	
 	// Shutdown in reverse order
+	// App
+	AppHandle->Shutdown();
+	
+	// Window
 	WindowHandle->Close();
-	delete WindowHandle;
+
+	// Platform
 #ifdef CU_PLATFORM_SDL
 	SDL_Quit();
 #endif
+
+	// Logger
+	CU_LOG_ENGINE(Info, "Engine shutdown.");
 	CuLog::GLog::Get().Shutdown();
+
+	// Cleanup
+	delete AppHandle;
+	delete WindowHandle;
 }
 
 bool Engine::ShouldQuit() const
