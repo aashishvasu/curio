@@ -17,7 +17,6 @@ namespace CuCore
 		void PollEvents() override;
 		// IWindow Interface
 	private:
-		// TODO: Replace with custom allocator
 		SDL_Window* Window = nullptr;
 
 		bool CanClose = false;

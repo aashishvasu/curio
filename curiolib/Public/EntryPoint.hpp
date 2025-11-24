@@ -5,22 +5,21 @@
 #if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 	inline int main(int argc, char** argv)
 	{
-		// TODO: Use custom allocator when ready
-		CuCore::Engine* engine = new CuCore::Engine();
+		// Stack allocate for now
+		CuCore::Engine engine = CuCore::Engine();
 
 		// Initialization
-		engine->Initialize(argc, argv);
+		engine.Initialize(argc, argv);
 
 		// Update
-		while (engine->ShouldQuit() == false)
+		while (engine.ShouldQuit() == false)
 		{
-			engine->Update();
+			engine.Update();
 		}
 
 		// Shutdown
-		engine->Shutdown();
+		engine.Shutdown();
 		
-		delete engine;
 		return 0;
 	}
 

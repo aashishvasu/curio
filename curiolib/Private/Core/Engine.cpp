@@ -12,7 +12,7 @@ using namespace CuCore;
 
 void Engine::Initialize(int argc, char** argv)
 {
-	// Initialize global engine modules
+	// Initialize engine core globals before anything else
 	CuLog::GLog::Get().Initialize();
 	CuCore::GMemory::Get().Initialize();
 
@@ -20,7 +20,7 @@ void Engine::Initialize(int argc, char** argv)
 #ifdef CU_PLATFORM_SDL
 	SDL_Init(SDL_INIT_VIDEO);
 	CU_LOG_ENGINE(Info, "SDL Initialized");
-	WindowHandle = new WindowSDL();
+	WindowHandle = NewObject<WindowSDL>();
 #endif
 
 	// App creation - should give us access to app spec
@@ -58,14 +58,14 @@ void Engine::Shutdown()
 #ifdef CU_PLATFORM_SDL
 	SDL_Quit();
 #endif
-	
-	// Engine globals
-	CuCore::GMemory::Get().Shutdown();
-	CuLog::GLog::Get().Shutdown();
 
 	// Cleanup
-	delete AppHandle;
-	delete WindowHandle;
+	DeleteObject<Application>(AppHandle);	
+	DeleteObject<IWindow>(WindowHandle);
+	
+	// Engine core globals
+	CuCore::GMemory::Get().Shutdown();
+	CuLog::GLog::Get().Shutdown();
 }
 
 bool Engine::ShouldQuit() const

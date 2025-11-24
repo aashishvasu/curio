@@ -148,9 +148,8 @@ void GLog::Log(const SLogger& inLogger, ELogLevel inLevel, const char* inFile, i
 
 void GLog::LogRaw(const SLogger& inLogger, const EVerbosity& inVerbosity, const ELogLevel& inLevel, const char* inFile, int inLine, const char* Format, va_list args)
 {
-	if (!Initialized)
-		Initialize();
-
+	CU_ASSERT(Initialized, "Logger not initialized!");
+	
 	if (inLevel < inLogger.Level)
 		return;
 

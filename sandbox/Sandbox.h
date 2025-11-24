@@ -15,7 +15,6 @@ public:
 
 inline CuCore::Application* CuCore::CreateApplication(int argc, char** argv)
 {
-	// TODO: Use custom allocator when ready
 	ApplicationSpec spec = {"Sandbox", 640, 480, {argc, argv}};
-	return new Sandbox(spec);
+	return NewObject<Sandbox>(spec);
 }

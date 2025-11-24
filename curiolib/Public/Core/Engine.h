@@ -21,7 +21,6 @@ namespace CuCore
 		Application* AppHandle = nullptr;
 		
 		// The main window
-		// TODO: Replace with custom allocator
 		IWindow* WindowHandle = nullptr;
 
 		bool CanQuit = false;
