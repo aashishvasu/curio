@@ -5,7 +5,7 @@
 struct SDL_Window;
 namespace CuCore
 {
-	class WindowSDL final : public IWindow
+	class CURIO_API WindowSDL final : public IWindow
 	{
 	public:
 		~WindowSDL() override;

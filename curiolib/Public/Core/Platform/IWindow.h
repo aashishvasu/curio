@@ -10,7 +10,7 @@ namespace CuCore
 		int Height;
 	};
 	
-	class IWindow
+	class CURIO_API IWindow
 	{
 	public:
 		virtual ~IWindow() = default;

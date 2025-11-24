@@ -2,7 +2,7 @@
 
 namespace CuCore
 {
-	struct AppCmdLineArgs
+	struct CURIO_API AppCmdLineArgs
 	{
 		int Count = 0;
 		char** Args = nullptr;
@@ -14,7 +14,7 @@ namespace CuCore
 		}
 	};
 	
-	struct ApplicationSpec
+	struct CURIO_API ApplicationSpec
 	{
 		// TODO: Replace with custom string when ready
 		const char* Name;
