@@ -32,6 +32,9 @@ void Engine::Initialize(int argc, char** argv)
 
 	// App initialization
 	AppHandle->Initialize();
+
+	// Last, set the initialized flag to true
+	Initialized = true;
 }
 
 void Engine::Update()
@@ -66,9 +69,17 @@ void Engine::Shutdown()
 	// Engine core globals
 	CuCore::GMemory::Get().Shutdown();
 	CuLog::GLog::Get().Shutdown();
+
+	Initialized = false;
 }
 
 bool Engine::ShouldQuit() const
 {
 	return CanQuit || WindowHandle->ShouldClose();
+}
+
+Engine::~Engine()
+{
+	if (Initialized)
+		Shutdown();
 }

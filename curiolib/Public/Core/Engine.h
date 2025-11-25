@@ -10,11 +10,15 @@ namespace CuCore
 	class CURIO_API Engine
 	{
 	public:
+		Engine() = default;
+		~Engine();
 		void Initialize(int argc, char** argv);
 		void Update();
 		void Shutdown();
 
 		bool ShouldQuit() const;
+
+	private:
 
 	private:
 		// Application handle
@@ -24,5 +28,6 @@ namespace CuCore
 		IWindow* WindowHandle = nullptr;
 
 		bool CanQuit = false;
+		bool Initialized = false;
 	};
 }
