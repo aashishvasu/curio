@@ -12,6 +12,9 @@
 #include "Core/Engine.h"
 #include "Core/Application.h"
 
+// Containers
+#include "Core/Container/Array.h"
+
 ///////////////ENTRY POINT///////////////////
 #include "EntryPoint.hpp"
 /////////////////////////////////////////////
