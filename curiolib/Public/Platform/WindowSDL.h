@@ -3,7 +3,7 @@
 #include "IWindow.h"
 
 struct SDL_Window;
-namespace CuCore
+namespace Platform
 {
 	class CURIO_API WindowSDL final : public IWindow
 	{

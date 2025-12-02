@@ -1,8 +1,8 @@
 ﻿#include "CuPCH.h"
 
-#include "Core/Memory/Memory.h"
+#include "Memory/Memory.h"
 
-using namespace CuCore;
+using namespace Core;
 
 GMemory& GMemory::Get()
 {

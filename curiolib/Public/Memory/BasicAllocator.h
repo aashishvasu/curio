@@ -2,9 +2,9 @@
 
 #include "Allocator.h"
 
-namespace CuCore
+namespace Core
 {
-	class CURIO_API BasicAllocator : public IAllocator
+	class CURIO_API BasicAllocator final : public IAllocator
 	{
 	public:
 		BasicAllocator() = default;

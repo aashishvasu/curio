@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace CuCore
+namespace Core
 {
 	// Memory constants
 	constexpr size_t DEFAULT_ALIGNMENT = 8;

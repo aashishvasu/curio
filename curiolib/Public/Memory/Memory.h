@@ -3,7 +3,7 @@
 #include <new>
 #include "BasicAllocator.h"
 
-namespace CuCore
+namespace Core
 {
 	class CURIO_API GMemory
 	{

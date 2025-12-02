@@ -1,21 +1,23 @@
-﻿#include "Core/Platform/WindowSDL.h"
+﻿#include "Platform/WindowSDL.h"
 
 #include <SDL3/SDL_events.h>
 #include <SDL3/SDL_video.h>
 
-CuCore::WindowSDL::~WindowSDL()
+using namespace Platform;
+
+WindowSDL::~WindowSDL()
 {
 	
 }
 
-void CuCore::WindowSDL::Create(const WindowProperties& inProps)
+void WindowSDL::Create(const WindowProperties& inProps)
 {
 	Window = SDL_CreateWindow(inProps.Title, inProps.Width, inProps.Height, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 
 	CU_ASSERT(Window, "Could not create SDL window: %s", SDL_GetError());
 }
 
-void CuCore::WindowSDL::Close()
+void WindowSDL::Close()
 {
 	if(Window)
 	{
@@ -24,12 +26,12 @@ void CuCore::WindowSDL::Close()
 	}
 }
 
-bool CuCore::WindowSDL::ShouldClose() const
+bool WindowSDL::ShouldClose() const
 {
 	return CanClose;
 }
 
-void CuCore::WindowSDL::PollEvents()
+void WindowSDL::PollEvents()
 {
 	SDL_Event e;
 	while(SDL_PollEvent(&e))

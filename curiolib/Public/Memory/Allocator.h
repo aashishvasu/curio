@@ -2,7 +2,7 @@
 
 #include "MemoryCommon.h"
 
-namespace CuCore
+namespace Core
 {
 	class CURIO_API IAllocator
 	{

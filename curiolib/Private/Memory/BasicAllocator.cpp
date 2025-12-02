@@ -1,8 +1,8 @@
 ﻿#include "CuPCH.h"
 
-#include "Core/Memory/BasicAllocator.h"
+#include "Memory/BasicAllocator.h"
 
-using namespace CuCore;
+using namespace Core;
 
 BasicAllocator::~BasicAllocator()
 {
