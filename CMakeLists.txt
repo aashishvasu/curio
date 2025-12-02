@@ -4,8 +4,8 @@ project(Curio VERSION 0.1
 		DESCRIPTION "A small game (engine?)"
 		LANGUAGES CXX)
 
-# Require C++17
-set(CMAKE_CXX_STANDARD 17)
+# Require C++20
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Only do these if this is the main project, and not if it is included through add_subdirectory

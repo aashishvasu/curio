@@ -1,12 +1,12 @@
 #include "Sandbox.h"
 
-Sandbox::Sandbox(const CuCore::ApplicationSpec& Spec) : Application(Spec) {}
+Sandbox::Sandbox(const Core::ApplicationSpec& Spec) : Application(Spec) {}
 
 void Sandbox::Initialize()
 {
 	CU_LOG(LogSandbox, Trace, "App initialized");
 
-	CU_LOG(LogSandbox, Trace, "Total memory allocated: %d", CuCore::GMemory::Get().GetDefaultAllocator().GetTotalAllocated());
+	CU_LOG(LogSandbox, Trace, "Total memory allocated: %d", Core::GMemory::Get().GetDefaultAllocator().GetTotalAllocated());
 }
 
 void Sandbox::Update()

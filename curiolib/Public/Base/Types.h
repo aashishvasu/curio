@@ -27,7 +27,4 @@ static_assert(sizeof(int16)	== 2, "int16 must be 2 bytes");
 static_assert(sizeof(int32)	== 4, "int32 must be 4 bytes");
 static_assert(sizeof(int64)	== 8, "int64 must be 8 bytes");
 
-namespace CuCore
-{
-	constexpr int32 INDEX_NONE = -1;
-}
+constexpr int32 INDEX_NONE = -1;

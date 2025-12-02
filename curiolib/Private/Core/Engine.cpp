@@ -1,26 +1,26 @@
 ﻿#include "Core/Engine.h"
-#include "Core/Log.h"
-#include "Core/Memory/Memory.h"
+#include "Log/Log.h"
+#include "Memory/Memory.h"
 #include "Core/Application.h"
 
 #ifdef CU_PLATFORM_SDL
 #include "SDL3/SDL.h"
-#include "Core/Platform/WindowSDL.h"
+#include "Platform/WindowSDL.h"
 #endif
 
-using namespace CuCore;
+using namespace Core;
 
 void Engine::Initialize(int argc, char** argv)
 {
 	// Initialize engine core globals before anything else
 	CuLog::GLog::Get().Initialize();
-	CuCore::GMemory::Get().Initialize();
+	GMemory::Get().Initialize();
 
 	// Platform initialization
 #ifdef CU_PLATFORM_SDL
 	SDL_Init(SDL_INIT_VIDEO);
 	CU_LOG_ENGINE(Info, "SDL Initialized");
-	WindowHandle = NewObject<WindowSDL>();
+	WindowHandle = NewObject<Platform::WindowSDL>();
 #endif
 
 	// App creation - should give us access to app spec
@@ -64,10 +64,10 @@ void Engine::Shutdown()
 
 	// Cleanup
 	DeleteObject<Application>(AppHandle);	
-	DeleteObject<IWindow>(WindowHandle);
+	DeleteObject<Platform::IWindow>(WindowHandle);
 	
 	// Engine core globals
-	CuCore::GMemory::Get().Shutdown();
+	Core::GMemory::Get().Shutdown();
 	CuLog::GLog::Get().Shutdown();
 
 	Initialized = false;

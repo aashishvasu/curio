@@ -1,8 +1,12 @@
 ﻿#pragma once
 
-namespace CuCore
+namespace Platform
 {
 	class IWindow;
+}
+
+namespace Core
+{
 	class Application;
 
 	extern Application* CreateApplication(int argc, char** argv);
@@ -25,7 +29,7 @@ namespace CuCore
 		Application* AppHandle = nullptr;
 		
 		// The main window
-		IWindow* WindowHandle = nullptr;
+		Platform::IWindow* WindowHandle = nullptr;
 
 		bool CanQuit = false;
 		bool Initialized = false;

@@ -3,10 +3,10 @@
 // Curio includes
 
 // Memory
-#include "Core/Memory/Memory.h"
+#include "Memory/Memory.h"
 
 // Logging
-#include "Core/Log.h"
+#include "Log/Log.h"
 
 // Core
 #include "Core/Engine.h"
@@ -14,6 +14,9 @@
 
 // Containers
 #include "Core/Container/Array.h"
+
+// Utils
+#include "Utils/Hash.h"
 
 ///////////////ENTRY POINT///////////////////
 #include "EntryPoint.hpp"

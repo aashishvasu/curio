@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "Core/Memory/Memory.h"
+#include "Memory/Memory.h"
 
-namespace CuCore
+namespace Core
 {
 	constexpr size_t MIN_CAPACITY = 4;
 	

@@ -1,4 +1,4 @@
-﻿#include "Core/Log.h"
+﻿#include "Log/Log.h"
 
 #include <mutex>
 #include <spdlog/spdlog.h>

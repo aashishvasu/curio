@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace CuCore
+namespace Core
 {
 	struct CURIO_API AppCmdLineArgs
 	{

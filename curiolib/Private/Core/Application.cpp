@@ -1,6 +1,6 @@
 ﻿#include "Core/Application.h"
 
-using namespace CuCore;
+using namespace Core;
 
 Application::Application(const ApplicationSpec& spec) : AppSpec(spec)
 {

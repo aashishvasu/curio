@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Core/Log.h"
+#include "Log/Log.h"
 
 // Enable asserts in both Debug and RelWithDebInfo builds
 #if defined(CURIO_DEBUG) || defined(CURIO_RELDBG)

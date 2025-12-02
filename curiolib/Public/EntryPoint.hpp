@@ -6,7 +6,7 @@
 	inline int main(int argc, char** argv)
 	{
 		// Stack allocate for now
-		CuCore::Engine engine = CuCore::Engine();
+		Core::Engine engine = Core::Engine();
 
 		// Initialization
 		engine.Initialize(argc, argv);
