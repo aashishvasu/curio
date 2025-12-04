@@ -15,8 +15,9 @@
 // Containers
 #include "Core/Container/Array.h"
 
-// Utils
+// Utilities
 #include "Utils/Hash.h"
+#include "Utils/Math.h"
 
 ///////////////ENTRY POINT///////////////////
 #include "EntryPoint.hpp"

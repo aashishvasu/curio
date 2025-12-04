@@ -22,7 +22,7 @@ add_library (curiolib
 				${PUBLIC_SOURCE_LIST}
 				${PRIVATE_HEADER_LIST}
 				${PRIVATE_SOURCE_LIST}
-			)
+)
 
 # Generate export header
 generate_export_header  (curiolib
