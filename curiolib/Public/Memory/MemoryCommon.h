@@ -10,6 +10,8 @@ namespace Core
 
 	// Utility functions
 	constexpr bool IsPowerOfTwo(const size_t X) { return X && !(X & (X - 1)); }
+	constexpr size_t AlignUp(const size_t Value, const size_t Alignment) { return (Value + Alignment - 1) & ~(Alignment - 1); }
+	constexpr size_t AlignDown(const size_t Value, const size_t Alignment) { return Value & ~(Alignment - 1); }
 
 	inline size_t AlignForwardAdjustment(const void* Address, const size_t Alignment)
 	{
