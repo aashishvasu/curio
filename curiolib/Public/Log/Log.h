@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Core/Container/Array.h"
 
 namespace CuLog
 {
@@ -39,7 +40,7 @@ namespace CuLog
 		void Shutdown();
 
 		void SetLogVerbosity(const EVerbosity& inVerbosity);
-		static SLogger RegisterLogger(const char* inName, const ELogLevel& inLevel);
+		SLogger RegisterLogger(const char* inName, const ELogLevel& inLevel);
     
 		// Helper to extract the base filename from a path
 		static const char* GetBaseFilename(const char* FilePath);
@@ -64,7 +65,6 @@ namespace CuLog
     #define DECLARE_LOGGER(Name, DefaultLevel) \
 	static CuLog::SLogger Name = {#Name, CuLog::ELogLevel::DefaultLevel}
 #endif
-
 
 // Logger usage
 #if defined(CURIO_DEBUG) || defined(CURIO_RELDBG)

@@ -95,7 +95,6 @@ void GLog::SetLogVerbosity(const EVerbosity& inVerbosity)
 SLogger GLog::RegisterLogger(const char* inName, const ELogLevel& inLevel)
 {
 	SLogger newLogger = {inName, inLevel};
-	// TODO: Add to CuArray when that is ready
 	
 	// Create spdlog logger
 	// TODO: Use CuString when it's ready
@@ -103,7 +102,7 @@ SLogger GLog::RegisterLogger(const char* inName, const ELogLevel& inLevel)
 	auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(std::string(newLogger.Name)+".log", true);
     
 	// Create logger
-	auto spd_logger = std::make_shared<spdlog::logger>(newLogger.Name, spdlog::sinks_init_list{console_sink, file_sink});
+	const std::shared_ptr<spdlog::logger> spd_logger = std::make_shared<spdlog::logger>( newLogger.Name, spdlog::sinks_init_list{console_sink, file_sink});
 	spd_logger->set_level(ToSpdlogLevel(inLevel));
 	spd_logger->flush_on(spdlog::level::err);
     

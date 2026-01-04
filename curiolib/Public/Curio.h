@@ -14,6 +14,7 @@
 
 // Containers
 #include "Core/Container/Array.h"
+#include "Core/Container/Dict.h"
 
 // Utilities
 #include "Utils/Hash.h"
